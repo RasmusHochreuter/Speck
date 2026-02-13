@@ -1,0 +1,26 @@
+{
+  "name": "speck-marketplace",
+  "owner": {
+    "name": "Rasmus Hochreuter"
+  },
+  "metadata": {
+    "description": "Lightweight spec kit for Claude Code — generates feature specifications with prohibitions, decision trees, and acceptance criteria"
+  },
+  "plugins": [
+    {
+      "name": "speck",
+      "source": "./plugins/speck",
+      "description": "Specification-only feature planning for .NET/C# projects. Produces a markdown spec capturing requirements, prohibitions, decision trees, and escalation boundaries.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Rasmus Hochreuter"
+      },
+      "homepage": "https://github.com/rasmusHochreuter/speck",
+      "repository": "https://github.com/rasmusHochreuter/speck",
+      "license": "MIT",
+      "keywords": ["spec", "specification", "planning", "dotnet", "csharp"],
+      "category": "development-workflows",
+      "tags": ["spec-driven", "feature-planning", "brownfield", "dotnet"]
+    }
+  ]
+}
