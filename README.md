@@ -106,7 +106,7 @@ A fresh session gives Claude the full context window for coding. The spec contai
 
 ## Customizing to Your Stack
 
-Every team's project is different. There are two levels of customization:
+TheInterviewer works with any language and framework — Phase 0 reconnaissance adapts to whatever codebase it finds. These customization options let you fine-tune the experience:
 
 ### Level 1: CLAUDE.md conventions (per-project, no skill edits needed)
 
@@ -119,7 +119,7 @@ Your `CLAUDE.md` can include a conventions section that captures your technology
 
 These conventions pre-populate constraints in Phase 2, so you confirm them instead of re-stating them for every feature.
 
-Two convention templates are available in [`templates/`](templates/) if you'd prefer to start from a template:
+Two .NET convention templates are available in [`templates/dotnet/`](templates/dotnet/) as starting points — adapt them to your stack or contribute templates for other ecosystems:
 
 - [`claude-md-conventions.md`](templates/dotnet/claude-md-conventions.md) — MediatR, manual mapping, NSubstitute, Minimal APIs, `Result<T>`
 - [`claude-md-conventions-alt.md`](templates/dotnet/claude-md-conventions-alt.md) — Application services (no mediator), AutoMapper, Moq, Controllers, `Ardalis.Result`, MassTransit
@@ -141,12 +141,12 @@ The output template (the markdown structure at the bottom of SKILL.md) can be mo
 - Add a `## Performance Budget` section (e.g., "P99 latency under 200ms")
 - Rename `## Prohibitions (Don'ts)` to `## Constraints` if your team prefers that language
 
-**Adapt the reconnaissance for your stack:**
-The bundled Phase 0 reconnaissance looks for common project structures and patterns. If it doesn't detect your ecosystem's conventions automatically, you can update Phase 0 to look for specific project files and patterns, and update the example questions to reference your libraries.
+**Customize the reconnaissance:**
+Phase 0 reconnaissance is language-agnostic and adapts to whatever project structure it finds. If you want it to look for specific files or patterns unique to your setup, edit the Phase 0 checklist and update the example questions to reference your libraries.
 
 ## Examples
 
-The `examples/` folder contains example specs organized by stack. Contributions for other stacks are welcome.
+The `examples/` folder contains example specs organized by stack. The bundled examples are .NET/C#, but the skill works with any language — contributions for other stacks are welcome.
 
 ### .NET / C#
 
@@ -213,7 +213,7 @@ This skill wouldn't exist without ideas and inspiration from the following proje
 Issues and PRs welcome. A few ways to contribute:
 
 - **Add examples for your stack** — create a folder under `examples/` (e.g., `examples/java-spring/`, `examples/typescript-nestjs/`) with specs at varying complexity
-- **Improve the skill** — better questions, new phases, or broader language support in Phase 0 reconnaissance
+- **Improve the skill** — better questions, new phases, or sharper reconnaissance heuristics
 - **Convention templates** — add a CLAUDE.md convention template for your stack under `templates/`
 
 ## License
