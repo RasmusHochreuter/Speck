@@ -10,7 +10,7 @@ You run `/interview feature-name`, paste your business requirements, and Claude 
 /plugin marketplace add rasmusHochreuter/TheInterviewer  # add the registry
 /plugin install interview@interview-marketplace # install the plugin
 
-/interview order-cancellation           # interview -> spec
+/interview users need to reset their password via email
 ```
 
 The spec is a one-shot planning artifact, not a living document. Once the feature is implemented, you don't update the spec and re-run implementation. Bugs and enhancements are handled the normal way — you just tell Claude what to fix. The spec captured your intent, Claude internalized it, and then it got out of the way.
@@ -91,16 +91,16 @@ Commit the skills with your repo so the whole team has them.
 ### Step 1: Interview the feature
 
 ```
-/interview order-cancellation
+/interview users need to reset their password via email
 ```
 
-Paste your user story, ticket description, or just describe the feature. Claude reads your codebase, walks you through the 8-phase interview to fill in the technical details, and saves the spec to `.claude/specs/order-cancellation.md`.
+Paste your user story, ticket description, or just describe the feature. Claude reads your codebase, walks you through the 8-phase interview to fill in the technical details, and saves the spec to `.claude/specs/password-reset.md`.
 
 ### Step 2: Implement from the spec
 
 Open a fresh Claude Code session and tell it:
 
-> *Implement the feature spec at `.claude/specs/order-cancellation.md`*
+> *Implement the feature spec at `.claude/specs/password-reset.md`*
 
 A fresh session gives Claude the full context window for coding. The spec contains everything it needs — reference implementation, prohibitions, decision tree, acceptance criteria — so Claude implements the feature following your established patterns without you repeating anything.
 
