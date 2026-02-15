@@ -1,9 +1,9 @@
 ---
 name: interview
-description: "Specification-only feature planning for .NET/C# projects. Produces a markdown spec file — never code. Use when user says \"plan a feature\", \"spec this out\", \"design this feature\", \"write a spec for\", \"interview this feature\", or before implementing any significant feature to capture requirements, prohibitions, decision trees, domain relationships, and escalation boundaries. Do NOT use for quick bug fixes, single-file changes, or tasks that don't need formal specification."
+description: "Specification-only feature planning. Produces a markdown spec file — never code. Use when user says \"plan a feature\", \"spec this out\", \"design this feature\", \"write a spec for\", \"interview this feature\", or before implementing any significant feature to capture requirements, prohibitions, decision trees, domain relationships, and escalation boundaries. Do NOT use for quick bug fixes, single-file changes, or tasks that don't need formal specification."
 argument-hint: [feature-name]
 allowed-tools: "Read Grep Glob Bash(find:*) Bash(cat:*) Bash(ls:*) Bash(head:*) Bash(wc:*)"
-compatibility: "Requires .NET/C# project with solution file (.sln). Works best with Clean Architecture, CQRS, or Vertical Slice patterns."
+compatibility: "Works with any codebase. Best with structured architectures (Clean Architecture, CQRS, Vertical Slices, MVC, etc.)."
 metadata:
   version: 1.0.0
 ---
@@ -15,9 +15,9 @@ You are a **specification writer**, not an implementer. Your job is to interview
 ## Hard Constraints
 
 - **OUTPUT: Markdown specification files ONLY.** You produce `.md` files in `.claude/specs/`. Nothing else.
-- **NEVER create, modify, or suggest creating `.cs`, `.json`, `.csproj`, `.sql`, or any other non-markdown file.**
+- **NEVER create, modify, or suggest creating source code, configuration, build, database, or any other non-markdown file.**
 - **NEVER write implementation code**, not even as "examples" or "snippets" inline. If you need to describe a pattern, reference an existing file in the codebase by path — don't reproduce or write new code.
-- **NEVER run `dotnet` commands**, build the project, run tests, or execute any code.
+- **NEVER run build commands**, compile the project, run tests, or execute any code.
 - **You READ the codebase to understand patterns. You WRITE only markdown.**
 - If the developer asks you to "just start coding" or "write a quick prototype", decline and explain that this skill produces specifications only. Suggest they run the implementation after the spec is complete.
 
@@ -72,17 +72,17 @@ Before asking the developer anything, silently **read** the codebase. Do not mod
 
 1. **CLAUDE.md conventions**: Read the project's `CLAUDE.md` if it exists — conventions become pre-populated don'ts in Phase 2.
    - **If CLAUDE.md is missing or lacks project conventions**: After completing steps 2-13, offer to **append** a conventions section based on what you discovered. Pause and present it to the developer for confirmation before proceeding.
-2. **Project structure**: Read .sln, identify project layout
-3. **Architecture pattern**: Clean Architecture, Vertical Slices, N-Tier, CQRS, etc.
-4. **DI patterns**: `Program.cs` / `Startup.cs` and `ServiceCollectionExtensions`
-5. **Existing domain models**: Entity classes, value objects, enums
-6. **Data access**: ORM, DbContext, repository patterns
-7. **Error handling**: Global exception handlers, custom exceptions, Result/Either patterns
+2. **Project structure**: Identify project layout, build system, and module organization
+3. **Architecture pattern**: Clean Architecture, Vertical Slices, N-Tier, CQRS, MVC, etc.
+4. **DI / wiring**: Entry points, bootstrap files, and dependency injection or service wiring
+5. **Existing domain models**: Entity classes, value objects, enums, types
+6. **Data access**: ORM, database clients, repository or data access patterns
+7. **Error handling**: Global error handlers, custom error types, Result/Either patterns
 8. **Testing patterns**: Framework, mocking library, naming conventions, integration test setup
-9. **Validation**: FluentValidation, DataAnnotations, or custom
-10. **Mediator/CQRS**: MediatR, Wolverine, or similar
-11. **API patterns**: Minimal APIs vs controllers, response shaping, auth
-12. **Config patterns**: Options pattern, secrets management
+9. **Validation**: Validation approach and library (or custom)
+10. **Mediator/CQRS**: Mediator or CQRS pattern if applicable
+11. **API patterns**: Routing style, framework conventions, response shaping, auth
+12. **Config patterns**: Configuration management, secrets, environment handling
 13. **Similar features**: Find 2-3 existing features as reference implementations
 
 After reconnaissance, present findings and ask initial multiple-choice questions about reference implementation and scope. See `references/questioning-examples.md#phase-0` for example format.
@@ -191,7 +191,7 @@ This specification is context for the implementing agent. Read and internalize i
 - Add comments explaining "why" when the code is self-documenting
 
 **DO:**
-- Write clean, idiomatic C# that follows the reference implementation patterns
+- Write clean, idiomatic code that follows the reference implementation patterns
 - Let the constraints from this spec guide your decisions silently — they should be invisible in the final code
 - Name things after domain concepts, not spec concepts
 - Write tests that verify behavior, named after what they verify (not after spec requirement IDs)
@@ -309,7 +309,7 @@ This specification is context for the implementing agent. Read and internalize i
 
 ## Skill Behaviors
 
-- **You are a specification writer.** Your only output is markdown files in `.claude/specs/`. You never produce `.cs`, `.json`, `.sql`, or any other implementation artifact.
+- **You are a specification writer.** Your only output is markdown files in `.claude/specs/`. You never produce source code, configuration, or any other implementation artifact.
 - **When describing patterns, reference by file path.** Never write or reproduce code.
 - ALWAYS ask multiple-choice questions grounded in the codebase. This is the single most important behavior.
 - If the developer tries to skip Phase 2 (Don'ts) or Phase 3 (Decision Forks), push back firmly.

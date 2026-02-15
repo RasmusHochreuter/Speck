@@ -2,6 +2,8 @@
 
 Reference examples for how to construct codebase-grounded, multiple-choice questions during each phase of the TheInterviewer specification workflow.
 
+> **Note:** These examples use a .NET/C# codebase for illustration. When working with a different stack, adapt the specific library and pattern references to match the project's actual tools and conventions.
+
 ## Bad vs Good Questioning
 
 **Bad (open-ended):**
