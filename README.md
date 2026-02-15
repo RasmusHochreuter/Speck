@@ -7,7 +7,7 @@ Turn a user story, ticket, or feature idea into a specification that Claude Code
 You run `/interview feature-name`, paste your business requirements, and Claude fills in the technical gaps — codebase patterns, prohibitions, decision trees, edge cases — through a structured interview using multiple-choice questions grounded in your actual code. The output is a single markdown spec. You review it, then a fresh Claude Code session implements it cleanly.
 
 ```
-/plugin marketplace add rasmusHochreuter/speck  # add the registry
+/plugin marketplace add rasmusHochreuter/TheInterviewer  # add the registry
 /plugin install interview@interview-marketplace # install the plugin
 
 /interview order-cancellation           # plan: interview -> spec
@@ -70,7 +70,7 @@ Output: `.claude/specs/<feature-name>.md`
 Add the marketplace and install the plugin:
 
 ```shell
-/plugin marketplace add rasmusHochreuter/speck
+/plugin marketplace add rasmusHochreuter/TheInterviewer
 /plugin install interview@interview-marketplace
 ```
 

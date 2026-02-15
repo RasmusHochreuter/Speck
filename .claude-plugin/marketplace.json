@@ -15,8 +15,8 @@
       "author": {
         "name": "Rasmus Hochreuter"
       },
-      "homepage": "https://github.com/rasmusHochreuter/speck",
-      "repository": "https://github.com/rasmusHochreuter/speck",
+      "homepage": "https://github.com/rasmusHochreuter/TheInterviewer",
+      "repository": "https://github.com/rasmusHochreuter/TheInterviewer",
       "license": "MIT",
       "keywords": ["spec", "specification", "planning", "interview", "dotnet", "csharp"],
       "category": "development-workflows",
