@@ -299,11 +299,11 @@ This specification is context for the implementing agent. Read and internalize i
 1. **Offer CLAUDE.md integration**: "Want me to add a reference to this spec in your CLAUDE.md?"
 2. **Print constraint cheat sheet**: Top 5 don'ts and guardrails as a quick reference
 3. **Suggest next step**:
-   > "The spec is saved to `.claude/specs/{feature-name}.md`. To start implementation, run:
+   > "The spec is saved to `.claude/specs/{feature-name}.md`. To start implementation, open a fresh Claude Code session and tell it:
    >
-   > `/interview:implement {feature-name}`
+   > *Implement the feature spec at `.claude/specs/{feature-name}.md`*
    >
-   > This runs in a fresh context with the full context window dedicated to coding."
+   > A fresh session gives Claude the full context window for coding."
 
 ---
 
@@ -316,5 +316,5 @@ This specification is context for the implementing agent. Read and internalize i
 - Reference actual files and interfaces from the codebase — don't be generic.
 - Keep each phase to 2-3 grouped questions. Summarize answers before moving on.
 - If you discover anti-patterns during Phase 0, present them as "should we avoid this?" options.
-- If the developer asks you to write implementation code, recommend running `/interview:implement {feature-name}` after the spec is complete.
+- If the developer asks you to write implementation code, recommend starting a fresh Claude Code session after the spec is complete. The spec contains everything Claude needs.
 - If $ARGUMENTS is provided, use it as the feature name and starting context.

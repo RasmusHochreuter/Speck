@@ -10,8 +10,7 @@ You run `/interview feature-name`, paste your business requirements, and Claude 
 /plugin marketplace add rasmusHochreuter/TheInterviewer  # add the registry
 /plugin install interview@interview-marketplace # install the plugin
 
-/interview order-cancellation           # plan: interview -> spec
-/interview:implement order-cancellation # implement: spec -> code
+/interview order-cancellation           # interview -> spec
 ```
 
 The spec is a one-shot planning artifact, not a living document. Once the feature is implemented, you don't update the spec and re-run implementation. Bugs and enhancements are handled the normal way — you just tell Claude what to fix. The spec captured your intent, Claude internalized it, and then it got out of the way.
@@ -80,17 +79,16 @@ Or browse interactively — run `/plugin`, go to the **Discover** tab, and selec
 
 ```bash
 # From the repo root
-mkdir -p .claude/skills/interview/examples .claude/skills/interview-implement
+mkdir -p .claude/skills/interview/examples
 cp skill/SKILL.md .claude/skills/interview/
 cp skill/examples/order-cancellation-spec.md .claude/skills/interview/examples/
-cp skill/implement/SKILL.md .claude/skills/interview-implement/
 ```
 
 Commit the skills with your repo so the whole team has them.
 
 ## Usage
 
-### Step 1: Plan the feature
+### Step 1: Interview the feature
 
 ```
 /interview order-cancellation
@@ -98,13 +96,13 @@ Commit the skills with your repo so the whole team has them.
 
 Paste your user story, ticket description, or just describe the feature. Claude reads your codebase, walks you through the 8-phase interview to fill in the technical details, and saves the spec to `.claude/specs/order-cancellation.md`.
 
-### Step 2: Implement the feature
+### Step 2: Implement from the spec
 
-```
-/interview:implement order-cancellation
-```
+Open a fresh Claude Code session and tell it:
 
-This launches a fresh context window dedicated to coding. It reads the spec, the reference implementation, and your CLAUDE.md conventions, then implements the feature following your established patterns — without you repeating anything.
+> *Implement the feature spec at `.claude/specs/order-cancellation.md`*
+
+A fresh session gives Claude the full context window for coding. The spec contains everything it needs — reference implementation, prohibitions, decision tree, acceptance criteria — so Claude implements the feature following your established patterns without you repeating anything.
 
 ## Customizing to Your Stack
 
@@ -178,16 +176,12 @@ theinterviewer/
 │       ├── .claude-plugin/
 │       │   └── plugin.json
 │       └── skills/
-│           ├── interview/
-│           │   ├── SKILL.md
-│           │   └── examples/
-│           │       └── order-cancellation-spec.md
-│           └── interview-implement/
-│               └── SKILL.md         <- /interview:implement command
+│           └── interview/
+│               ├── SKILL.md
+│               └── examples/
+│                   └── order-cancellation-spec.md
 ├── skill/
-│   ├── SKILL.md                     <- the planning skill (for manual installation)
-│   ├── implement/
-│   │   └── SKILL.md                 <- the implementation skill
+│   ├── SKILL.md                     <- the interview skill (for manual installation)
 │   └── examples/
 │       └── order-cancellation-spec.md
 └── templates/
