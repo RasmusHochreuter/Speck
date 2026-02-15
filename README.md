@@ -1,4 +1,4 @@
-# TheInterviewer
+# The Interviewer
 
 **A lightweight spec kit for Claude Code that sharpens your specifications through structured interviews.**
 
